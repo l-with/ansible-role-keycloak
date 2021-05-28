@@ -1,0 +1,14 @@
+---
+
+galaxy_info:
+  role_name: keycloak
+  description: install keycloak
+  author: l_with
+  license: MIT
+  license_file: LICENSE
+  min_ansible_version: 2.9
+  platforms:
+  - name: Ubuntu
+    versions: focal
+
+...

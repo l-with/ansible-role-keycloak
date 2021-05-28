@@ -1,0 +1,41 @@
+---
+
+- name: Ensure Keycloak is installed with docker-compose
+  community.docker.docker_compose:
+    project_name: keycloak
+    state: "{{ keycloak_docker_compose_state }}"
+    definition:
+      volumes:
+        postgres_data:
+            driver: local
+      services:
+        postgres:
+            image: "{{ keycloak_db_image }}"
+            restart: always
+            volumes:
+              - postgres_data:/var/lib/postgresql/data
+            environment:
+              POSTGRES_DB: "{{ keycloak_db_name }}"
+              POSTGRES_USER: "{{ keycloak_db_user }}"
+              POSTGRES_PASSWORD: "{{ keycloak_db_password }}"
+        keycloak:
+            image: "{{ keycloak_image }}"
+            restart: always
+            environment:
+              DB_VENDOR: POSTGRES
+              DB_ADDR: postgres
+              DB_DATABASE: "{{ keycloak_db_name }}"
+              DB_USER: "{{ keycloak_db_user }}"
+              DB_SCHEMA: public
+              DB_PASSWORD: "{{ keycloak_db_password }}"
+              KEYCLOAK_USER: "{{ keycloak_user }}"
+              KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
+              # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+              #JDBC_PARAMS: "ssl=true"
+            ports:
+              - 8080:8080
+              - 8443:8443
+            depends_on:
+              - postgres  
+
+...

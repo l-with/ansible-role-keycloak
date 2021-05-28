@@ -1,0 +1,12 @@
+---
+
+keycloak_db_image: postgres:13.3-alpine
+keycloak_image: jboss/keycloak:13.0.1
+keycloak_db_name: keycloak
+keycloak_db_user: keycloak
+# keycloak_db_password: keycloaksecretdb
+keycloak_user: kc-admin
+# keycloak_password: keycloaksecret
+keycloak_docker_compose_state: present
+
+...
