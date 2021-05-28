@@ -1,5 +1,5 @@
 # Ansible Role Keycloak
-Install Keycloak with docker-cmpose
+Install Keycloak with docker-compose
 
 ## Role Variables
 
@@ -24,3 +24,4 @@ the keycloak user
 the password for the keycloak user
 
 #### `keycloak_docker_compose_state`: `present`
+state for [community.docker.docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html)
