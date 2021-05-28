@@ -1,5 +1,11 @@
 ---
 
+dependencies:
+  - name: docker_compose
+    src: git@gitlab.with.de:ansible/ansible-role-docker-compose.git
+    scm: git
+    version: 1.0.1
+
 galaxy_info:
   role_name: keycloak
   description: install keycloak
