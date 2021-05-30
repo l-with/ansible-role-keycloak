@@ -7,6 +7,9 @@ keycloak_db_user:              keycloak
 keycloak_user:                 kc-admin
 keycloak_docker_publish_http:  127.0.0.1:8080:8080
 keycloak_docker_publish_https: 127.0.0.1:8443:8443
+keycloak_docker_publish:
+  - "{{ keycloak_docker_publish_http }}"
+  - "{{ keycloak_docker_publish_https }}"
 keycloak_docker_compose_state: present
 
 # keycloak_db_password:         keycloaksecretdb

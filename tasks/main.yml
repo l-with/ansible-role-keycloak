@@ -52,9 +52,7 @@
               KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
               # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
               #JDBC_PARAMS: "ssl=true"
-            ports:
-              - "{{ keycloak_docker_publish_http }}"
-              - "{{ keycloak_docker_publish_https }}"
+            ports: "{{ keycloak_docker_publish }}"
             depends_on:
               - postgres  
 

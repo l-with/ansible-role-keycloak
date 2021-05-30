@@ -27,11 +27,18 @@ the keycloak user
 #### `keycloak_password`
 the password for the keycloak user
 
+#### `keycloak_docker_publish`:
+```
+  - "{{ keycloak_docker_publish_http }}"
+  - "{{ keycloak_docker_publish_https }}"
+```
+the definition of docker publishing ports
+
 #### `keycloak_docker_publish_http`: `127.0.0.1:8080:8080`
-definition of docker publishing http
+definition of docker publishing http (use by `keycloak_docker_publish`)
 
 #### `keycloak_docker_publish_https`: `127.0.0.1:8443:8443`
-definition of docker publishing https
+definition of docker publishing https (use by `keycloak_docker_publish`)
 
 #### `keycloak_docker_compose_state`: `present`
 state for [community.docker.docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html)
