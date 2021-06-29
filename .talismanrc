@@ -1,0 +1,4 @@
+fileignoreconfig:
+# defaults for keycloak_db_image, keycloak_image, keycloak_db_name, keycloak_db_user, keycloak_user, keycloak_docker_publish_http, keycloak_docker_publish_https, keycloak_docker_compose_state do not expose secrets
+- filename: README.md
+  checksum: 77e3d97d69ff3c195886a222e93ea52a611900a8d37187f8bc814aea0d711352
