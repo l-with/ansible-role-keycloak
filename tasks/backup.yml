@@ -3,6 +3,7 @@
 - name: Ensure backup dir
   ansible.builtin.file:
     path:  "{{ keycloak_backup_path }}"
+    state: directory
     owner: root
     group: root
     mode:  o-r
