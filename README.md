@@ -9,33 +9,14 @@ Note that this also requires installation of the python libraries `docker` and `
 
 ## Role Variables
 
-### `keycloak_db_image`: `postgres:13.3-alpine`
+### Docker
+#### `keycloak_db_image`: `postgres:13.3-alpine`
 
 the postgres docker image
 
-### `keycloak_image`: `jboss/keycloak:13.0.1`
+#### `keycloak_image`: `jboss/keycloak:15.0.1`
 
 the keycloak docker image
-
-### `keycloak_db_name`: `keycloak`
-
-the database name
-
-### `keycloak_db_user`: `keycloak`
-
-the database user
-
-### `keycloak_db_password`
-
-the password for the database user
-
-### `keycloak_user`: `kc-admin`
-
-the keycloak user
-
-### `keycloak_password`
-
-the password for the keycloak user
 
 ### `keycloak_docker_publish`:
 
@@ -57,6 +38,46 @@ definition of docker publishing https (use by `keycloak_docker_publish`)
 ### `keycloak_docker_compose_state`: `present`
 
 state for [community.docker.docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html)
+
+### Backup
+#### `keycloak_backup`: `no`
+
+if backup of the keycloak db should be configured
+
+#### `keycloak_backup_path`: `/var/backups/keycloak`
+
+the path for the keycloak backup
+
+#### `keycloak_backup_cron_hour`: `0`
+
+the schedule hour for keycloak backup
+
+#### `keycloak_backup_cron_minute`: `0`
+
+the schedule minute for keycloak backup
+
+### Database
+#### `keycloak_db_name`: `keycloak`
+
+the database name
+
+#### `keycloak_db_user`: `keycloak`
+
+the database user
+
+#### `keycloak_db_password`
+
+the password for the database user
+
+### Keycloak admin
+
+#### `keycloak_user`: `kc-admin`
+
+the keycloak user
+
+#### `keycloak_password`
+
+the password for the keycloak user
 
 ## Dependencies
 

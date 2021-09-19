@@ -56,4 +56,8 @@
             depends_on:
               - postgres  
 
+- name: Ensure backup
+  ansible.builtin.include_task: backup.yml
+  when: keycloak_backup
+
 ...
