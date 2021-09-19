@@ -57,7 +57,7 @@
               - postgres  
 
 - name: Ensure backup
-  ansible.builtin.include_task: backup.yml
+  ansible.builtin.include_tasks: backup.yml
   when: keycloak_backup
 
 ...
