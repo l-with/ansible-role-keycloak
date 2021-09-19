@@ -6,7 +6,7 @@
     state: directory
     owner: root
     group: root
-    mode:  o-r
+    mode:  u+s,o-rx
 
 - name: Ensure backup script
   ansible.builtin.template:
