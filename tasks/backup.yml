@@ -11,7 +11,7 @@
 - name: Ensure backup script
   ansible.builtin.template:
     src: templates/ansible_keycloak_backup.sh.j2
-    dest: /root/ansible_keycloak_backup.sh
+    dest: "{{ keycloak_backup_script }}"
     owner: root
     group: root
     mode:  u+x,o-r
@@ -21,7 +21,7 @@
     cron_file: "ansible_keycloak_backup"
     user:      root
     name:      "ansible keycloak backup"
-    job:       /root/ansible_keycloak_backup.sh
+    job:       "{{ keycloak_backup_script }}"
     hour:      "{{ keycloak_backup_cron_hour }}"
     minute:    "{{ keycloak_backup_cron_minute }}"
 
