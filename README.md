@@ -58,7 +58,7 @@ The backup script is templated to `/root/ansible_keycloak_backup.sh`.
 
 the path for the keycloak backup
 
-#### `keycloak_backup_file`: `keycloak_dump.sql`
+#### `keycloak_backup_file`: `keycloak.dump`
 
 the name of the keycloak backup file
 
