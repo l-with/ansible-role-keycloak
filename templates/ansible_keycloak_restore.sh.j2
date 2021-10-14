@@ -1,0 +1,2 @@
+#! /bin/sh
+/usr/bin/docker exec {{ keycloak_postgres_container_name }} /bin/bash -c "PGPASSWORD={{ keycloak_db_password }} psql --username {{ keycloak_db_user }} {{ keycloak_db_name }}" <{{ keycloak_backup_path }}/{{ keycloak_backup_file }}

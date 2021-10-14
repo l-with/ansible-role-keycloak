@@ -16,6 +16,14 @@
     group: root
     mode:  u+x,o-r
 
+- name: Ensure restore script
+  ansible.builtin.template:
+    src: templates/ansible_keycloak_restore.sh.j2
+    dest: "{{ keycloak_restore_script }}"
+    owner: root
+    group: root
+    mode:  u+x,o-r
+
 - name: Ensure scheduled backup 
   ansible.builtin.cron:
     cron_file: "ansible_keycloak_backup"

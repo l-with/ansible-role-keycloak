@@ -62,9 +62,13 @@ the path for the keycloak backup
 
 the name of the keycloak backup file
 
-### `keycloak_backup_script`: `/root/ansible_keycloak_backup.sh`
+#### `keycloak_backup_script`: `/root/ansible_keycloak_backup.sh`
 
 the path for the keycloak backup script
+
+#### `keycloak_restore_script`: `/root/ansible_keycloak_restore.sh`
+
+the path for the keycloak restore script
 
 #### `keycloak_backup_cron_hour`: `0`
 

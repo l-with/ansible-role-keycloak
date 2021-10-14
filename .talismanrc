@@ -13,6 +13,12 @@ fileignoreconfig:
   - PGPASSWORD=\{\{ \w+ \}\}
   - keycloak
   
+- filename: templates/ansible_keycloak_restore.sh.j2
+  ignore_detectors: [filename]
+  allowed_patterns:
+  - PGPASSWORD=\{\{ \w+ \}\}
+  - keycloak
+
 - filename: README.md
   allowed_patterns:
   - keycloak
