@@ -15,6 +15,7 @@ keycloak_container_name:          keycloak
 keycloak_postgres_container_name: postgres
 keycloak_backup:                  no
 keycloak_backup_path:             /var/backups/keycloak
+keycloak_backup_file:             keycloak_dump.sql
 keycloak_backup_cron_hour:        0
 keycloak_backup_cron_minute:      0
 
