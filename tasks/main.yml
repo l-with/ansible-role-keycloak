@@ -31,6 +31,7 @@
       services:
         postgres:
             image: "{{ keycloak_db_image }}"
+            container_name: postgres
             restart: always
             volumes:
               - postgres_data:/var/lib/postgresql/data
@@ -40,6 +41,7 @@
               POSTGRES_PASSWORD: "{{ keycloak_db_password }}"
         keycloak:
             image: "{{ keycloak_image }}"
+            container_name: keycloak
             restart: always
             environment:
               DB_VENDOR: POSTGRES
