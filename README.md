@@ -9,7 +9,7 @@ Note that this also requires installation of the python libraries `docker` and `
 
 ## Role Variables
 
-### Docker
+### Docker Compose
 #### `keycloak_db_image`: `postgres:13.3-alpine`
 
 the postgres docker image
@@ -18,7 +18,15 @@ the postgres docker image
 
 the keycloak docker image
 
-### `keycloak_docker_publish`:
+#### `keycloak_container_name`: `keycloak`
+
+the container name for keycloak
+
+#### `keycloak_postgres_container_name`: `postgres`
+
+the container name for postgres
+
+#### `keycloak_docker_publish`:
 
 ```yaml
   - "{{ keycloak_docker_publish_http }}"
@@ -27,15 +35,15 @@ the keycloak docker image
 
 the definition of docker publishing ports
 
-### `keycloak_docker_publish_http`: `127.0.0.1:8080:8080`
+#### `keycloak_docker_publish_http`: `127.0.0.1:8080:8080`
 
 definition of docker publishing http (use by `keycloak_docker_publish`)
 
-### `keycloak_docker_publish_https`: `127.0.0.1:8443:8443`
+#### `keycloak_docker_publish_https`: `127.0.0.1:8443:8443`
 
 definition of docker publishing https (use by `keycloak_docker_publish`)
 
-### `keycloak_docker_compose_state`: `present`
+#### `keycloak_docker_compose_state`: `present`
 
 state for [community.docker.docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html)
 
@@ -43,6 +51,8 @@ state for [community.docker.docker_compose](https://docs.ansible.com/ansible/lat
 #### `keycloak_backup`: `no`
 
 if backup of the keycloak db should be configured
+
+The backup script is templated to `/root/ansible_keycloak_backup.sh`.
 
 #### `keycloak_backup_path`: `/var/backups/keycloak`
 

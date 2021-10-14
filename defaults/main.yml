@@ -1,22 +1,21 @@
 ---
 
-keycloak_db_image:             postgres:13.4-alpine
-keycloak_image:                jboss/keycloak:15.0.1
-keycloak_db_name:              keycloak
-keycloak_db_user:              keycloak
-keycloak_user:                 kc-admin
-keycloak_docker_publish_http:  127.0.0.1:8080:8080
-keycloak_docker_publish_https: 127.0.0.1:8443:8443
+keycloak_db_image:                postgres:13.4-alpine
+keycloak_image:                   jboss/keycloak:15.0.1
+keycloak_db_name:                 keycloak
+keycloak_db_user:                 keycloak
+keycloak_user:                    kc-admin
+keycloak_docker_publish_http:     127.0.0.1:8080:8080
+keycloak_docker_publish_https:    127.0.0.1:8443:8443
 keycloak_docker_publish:
   - "{{ keycloak_docker_publish_http }}"
   - "{{ keycloak_docker_publish_https }}"
-keycloak_docker_compose_state: present
-keycloak_backup:               no
-keycloak_backup_path:          /var/backups/keycloak
-keycloak_backup_cron_hour:     0
-keycloak_backup_cron_minute:   0
-
-# keycloak_db_password:         keycloaksecretdb
-# keycloak_password:            keycloaksecret
+keycloak_docker_compose_state:    present
+keycloak_container_name:          keycloak
+keycloak_postgres_container_name: postgres
+keycloak_backup:                  no
+keycloak_backup_path:             /var/backups/keycloak
+keycloak_backup_cron_hour:        0
+keycloak_backup_cron_minute:      0
 
 ...
