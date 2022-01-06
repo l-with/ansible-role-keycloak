@@ -4,8 +4,8 @@
   roles:
     - role: ../../ansible-role-keycloak
       vars:
-        keycloak_db_password: keycloaksecretdb
-        keycloak_password: keycloaksecret
+        keycloak_db_password:          keycloaksecretdb
+        keycloak_password:             keycloaksecret
         keycloak_docker_compose_state: absent
 
 ...

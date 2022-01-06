@@ -7,6 +7,17 @@ fileignoreconfig:
 - filename: tasks/backup.yml
   ignore_detectors: [filename]
 
+- filename: tasks/main.yml
+  allowed_patterns:
+  - >
+    POSTGRES_PASSWORD: "{{ keycloak_db_password }}"
+  - >
+    DB_PASSWORD: "{{ keycloak_db_password }}"
+  - >
+    KEYCLOAK_USER: "{{ keycloak_user }}"
+  - >
+    KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
+
 - filename: templates/ansible_keycloak_backup.sh.j2
   ignore_detectors: [filename]
   allowed_patterns:
@@ -22,3 +33,10 @@ fileignoreconfig:
 - filename: README.md
   allowed_patterns:
   - keycloak
+
+- filename: test/playbook.yml
+  allowed_patterns:
+  - >
+    keycloak_db_password: +keycloaksecretdb
+  - >
+    keycloak_password: +keycloaksecret

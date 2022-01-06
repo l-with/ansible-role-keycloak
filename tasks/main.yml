@@ -27,36 +27,38 @@
     definition:
       volumes:
         postgres_data:
-            driver: local
+          driver: local
       services:
         postgres:
-            image: "{{ keycloak_db_image }}"
-            container_name: "{{ keycloak_postgres_container_name }}"
-            restart: always
-            volumes:
-              - postgres_data:/var/lib/postgresql/data
-            environment:
-              POSTGRES_DB: "{{ keycloak_db_name }}"
-              POSTGRES_USER: "{{ keycloak_db_user }}"
-              POSTGRES_PASSWORD: "{{ keycloak_db_password }}"
+          image: "{{ keycloak_db_image }}"
+          container_name: "{{ keycloak_postgres_container_name }}"
+          restart: always
+          volumes:
+            - postgres_data:/var/lib/postgresql/data
+          environment:
+            POSTGRES_DB: "{{ keycloak_db_name }}"
+            POSTGRES_USER: "{{ keycloak_db_user }}"
+            POSTGRES_PASSWORD: "{{ keycloak_db_password }}"
         keycloak:
-            image: "{{ keycloak_image }}"
-            container_name: "{{ keycloak_container_name }}"
-            restart: always
-            environment:
-              DB_VENDOR: POSTGRES
-              DB_ADDR: postgres
-              DB_DATABASE: "{{ keycloak_db_name }}"
-              DB_USER: "{{ keycloak_db_user }}"
-              DB_SCHEMA: public
-              DB_PASSWORD: "{{ keycloak_db_password }}"
-              KEYCLOAK_USER: "{{ keycloak_user }}"
-              KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
-              # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
-              #JDBC_PARAMS: "ssl=true"
-            ports: "{{ keycloak_docker_publish }}"
-            depends_on:
-              - postgres  
+          image: "{{ keycloak_image }}"
+          container_name: "{{ keycloak_container_name }}"
+          restart: always
+          environment:
+            DB_VENDOR: POSTGRES
+            DB_ADDR: postgres
+            DB_DATABASE: "{{ keycloak_db_name }}"
+            DB_USER: "{{ keycloak_db_user }}"
+            DB_SCHEMA: public
+            DB_PASSWORD: "{{ keycloak_db_password }}"
+            KEYCLOAK_USER: "{{ keycloak_user }}"
+            KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
+            # Uncomment the line below if you want to specify JDBC parameters.
+            # The parameter below is just an example, and it shouldn't be used in production without knowledge.
+            # It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+            # JDBC_PARAMS: "ssl=true"
+          ports: "{{ keycloak_docker_publish }}"
+          depends_on:
+            - postgres
 
 - name: Ensure backup
   ansible.builtin.include_tasks: backup.yml
