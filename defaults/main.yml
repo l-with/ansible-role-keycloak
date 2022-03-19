@@ -13,7 +13,7 @@ keycloak_docker_publish:
 keycloak_docker_compose_state:    present
 keycloak_container_name:          keycloak
 keycloak_postgres_container_name: postgres
-keycloak_backup:                  no
+keycloak_backup:                  false
 keycloak_backup_path:             /var/backups/keycloak
 keycloak_backup_file:             keycloak.dump
 keycloak_backup_script:           /root/ansible_keycloak_backup.sh
