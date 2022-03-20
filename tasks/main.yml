@@ -34,7 +34,7 @@
           container_name: "{{ keycloak_postgres_container_name }}"
           restart: always
           volumes:
-            - "{{ keycloak_path }}/postgres_data:{{ keycloak_postgres_container_data }}"
+            - "{{ keycloak_postgres_data }}:{{ keycloak_postgres_container_data }}"
           environment:
             POSTGRES_DB: "{{ keycloak_db_name }}"
             POSTGRES_USER: "{{ keycloak_db_user }}"
