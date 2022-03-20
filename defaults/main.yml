@@ -17,8 +17,9 @@ keycloak_backup:                  false
 keycloak_configure_backup:        "{{ keycloak_backup }}"
 keycloak_backup_path:             /var/backups/keycloak
 keycloak_backup_file:             keycloak.dump
-keycloak_backup_script:           /root/ansible_keycloak_backup.sh
-keycloak_restore_script:          /root/ansible_keycloak_restore.sh
+keycloak_backup_scripts_path:     /opt/keycloak/scripts
+keycloak_backup_script:           "{{ keycloak_backup_scripts_path }}/ansible_keycloak_backup.sh"
+keycloak_restore_script:          "{{ keycloak_backup_scripts_path }}/ansible_keycloak_restore.sh"
 keycloak_schedule_backup:         "{{ keycloak_backup }}"
 keycloak_backup_cron_hour:        0
 keycloak_backup_cron_minute:      0

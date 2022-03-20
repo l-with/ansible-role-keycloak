@@ -1,8 +1,17 @@
 ---
 
-- name: Ensure backup dir
+- name: Ensure backup path
   ansible.builtin.file:
     path:  "{{ keycloak_backup_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode:  o-rx
+  when: keycloak_configure_backup
+
+- name: Ensure backup scripts path
+  ansible.builtin.file:
+    path:  "{{ keycloak_backup_scripts_path }}"
     state: directory
     owner: root
     group: root
