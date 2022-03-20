@@ -21,7 +21,7 @@
 - name: Ensure backup script
   ansible.builtin.template:
     src: templates/ansible_keycloak_backup.sh.j2
-    dest: "{{ keycloak_backup_script }}"
+    dest: "{{ keycloak_backup_scripts_path }}/{{ keycloak_backup_script_name }}"
     owner: root
     group: root
     mode:  u+x,o-r
@@ -30,7 +30,7 @@
 - name: Ensure restore script
   ansible.builtin.template:
     src: templates/ansible_keycloak_restore.sh.j2
-    dest: "{{ keycloak_restore_script }}"
+    dest: "{{ keycloak_backup_scripts_path }}/{{ keycloak_restore_script_name }}"
     owner: root
     group: root
     mode:  u+x,o-r
