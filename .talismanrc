@@ -17,6 +17,8 @@ fileignoreconfig:
     KEYCLOAK_USER: "{{ keycloak_user }}"
   - >
     KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
+  - >
+    - "{{ keycloak_path }}/postgres_data:{{ keycloak_postgres_container_data }}"
 
 - filename: templates/ansible_keycloak_backup.sh.j2
   ignore_detectors: [filename]

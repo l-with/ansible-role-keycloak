@@ -14,6 +14,7 @@ keycloak_docker_compose_state:    present
 keycloak_container_name:          keycloak
 keycloak_postgres_container_name: postgres
 keycloak_postgres_container_data: /var/lib/postgresql/data
+keycloak_path:                    /opt/keycloak
 keycloak_backup:                  false
 keycloak_configure_backup:        "{{ keycloak_backup }}"
 keycloak_backup_path:             /var/backups/keycloak
