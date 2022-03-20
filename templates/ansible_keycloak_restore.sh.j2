@@ -1,2 +1,4 @@
 #! /bin/sh
-/usr/bin/docker exec {{ keycloak_postgres_container_name }} /bin/bash -c "PGPASSWORD={{ keycloak_db_password }} pg_restore --format=c --clean --username={{ keycloak_db_user }} --dbname={{ keycloak_db_name }} /var/lib/postgresql/data/{{ keycloak_backup_file }}"
+cp {{ keycloak_backup_path }}/{{ keycloak_backup_file }} {{ keycloak_postgres_container_data }}/{{ keycloak_backup_file }}
+/usr/bin/docker exec {{ keycloak_postgres_container_name }} /bin/bash -c "PGPASSWORD={{ keycloak_db_password }} pg_restore --format=c --clean --username={{ keycloak_db_user }} --dbname={{ keycloak_db_name }} {{ keycloak_postgres_container_data }}/{{ keycloak_backup_file }}"
+rm {{ keycloak_postgres_container_data }}/{{ keycloak_backup_file }}
