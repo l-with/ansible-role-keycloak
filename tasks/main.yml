@@ -35,7 +35,6 @@
           restart: always
           volumes:
             - postgres_data:/var/lib/postgresql/data
-            - "backup:{{ keycloak_backup_path }}/{{ keycloak_backup_file }}"
           environment:
             POSTGRES_DB: "{{ keycloak_db_name }}"
             POSTGRES_USER: "{{ keycloak_db_user }}"
