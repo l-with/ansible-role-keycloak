@@ -28,8 +28,8 @@ Note that this also requires installation of the python libraries `docker` and `
 | backup | keycloak_backup_path | `/var/backups/keycloak` | the path for the keycloak backup |
 | backup | keycloak_backup_file | `keycloak.dump` | the name of the keycloak backup file |
 | backup | keycloak_backup_scripts_path | `/opt/keycloak/scripts` | the path for the backup scripts |
-| backup | keycloak_backup_script_name | `"ansible_keycloak_backup.sh"` | the name of the keycloak backup script |
-| backup | keycloak_restore_script_name | `"ansible_keycloak_restore.sh"` | the name of the keycloak restore script |
+| backup | keycloak_backup_script_name | `"keycloak-backup.sh"` | the name of the keycloak backup script |
+| backup | keycloak_restore_script_name | `"keycloak-restore.sh"` | the name of the keycloak restore script |
 | backup | keycloak_backup_script |  `"{{ keycloak_backup_scripts_path }}/{{ keycloak_backup_script_name }}"` | the keycloak backup script |
 | backup | keycloak_restore_script |  `"{{ keycloak_backup_scripts_path }}/{{ keycloak_restore_script_name }}"` | the keycloak restore script |
 | backup | keycloak_schedule_backup | `"{{ keycloak_backup }}"` | if backup of the keycloak db should be scheduled |
