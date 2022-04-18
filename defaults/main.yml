@@ -20,7 +20,7 @@ keycloak_backup:                  false
 keycloak_configure_backup:        "{{ keycloak_backup }}"
 keycloak_backup_path:             /var/backups/keycloak
 keycloak_backup_file:             keycloak.dump
-keycloak_backup_scripts_path:     /opt/keycloak/scripts
+keycloak_backup_scripts_path:     "{{ keycloak_path }}/scripts"
 keycloak_backup_script_name:      keycloak-backup.sh
 keycloak_restore_script_name:     keycloak-restore.sh
 keycloak_backup_script:           "{{ keycloak_backup_scripts_path }}/{{ keycloak_backup_script_name }}"

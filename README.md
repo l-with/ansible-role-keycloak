@@ -27,7 +27,7 @@ Note that this also requires installation of the python libraries `docker` and `
 | backup | keycloak_configure_backup | `"{{ keycloak_backup }}"` | if backup of the keycloak db should be configured |
 | backup | keycloak_backup_path | `/var/backups/keycloak` | the path for the keycloak backup |
 | backup | keycloak_backup_file | `keycloak.dump` | the name of the keycloak backup file |
-| backup | keycloak_backup_scripts_path | `/opt/keycloak/scripts` | the path for the backup scripts |
+| backup | keycloak_backup_scripts_path | `"{{ keycloak_path }}/scripts"` | the path for the backup scripts |
 | backup | keycloak_backup_script_name | `"keycloak-backup.sh"` | the name of the keycloak backup script |
 | backup | keycloak_restore_script_name | `"keycloak-restore.sh"` | the name of the keycloak restore script |
 | backup | keycloak_backup_script |  `"{{ keycloak_backup_scripts_path }}/{{ keycloak_backup_script_name }}"` | the keycloak backup script |
