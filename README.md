@@ -38,8 +38,8 @@ Note that this also requires installation of the python libraries `docker` and `
 | database | keycloak_db_name | `keycloak` | the database name |
 | database | keycloak_db_user | `keycloak` | the database user |
 | database | keycloak_db_password | | the password for the database user |
-| user | keycloak_user | `kc-admin` | the keycloak user |
-| user | keycloak_password | | the password for the keycloak user |
+| user | keycloak_admin_user | `kc-admin` | the keycloak admin user |
+| user | keycloak_admin_password | | the password for the admin keycloak user |
 <!-- markdownlint-enable MD033 -->
 
 ## Dependencies
